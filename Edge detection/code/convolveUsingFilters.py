@@ -14,22 +14,22 @@ gray = rgb2gray(img)
 plt.imshow(gray, cmap = plt.get_cmap('gray'))
 plt.show()
 
-from scipy import ndimage
-
 k1 = np.array([[1,1,1],[0,0,0],[-1,-1,-1]])#for horizontal edges
 k2 = np.array([[1,0,-1],[1,0,-1],[1,0,-1]])#for vertical edges
 
+#using 1D ndimage convolve without any image sharpenning
+"""from scipy import ndimage
 x = ndimage.convolve(gray, k1, mode='constant', cval=0.0)
 plt.imshow(x,cmap = plt.get_cmap('gray'))
-
+"""
 
 import scipy.signal
 from skimage import exposure
 
-edges = scipy.signal.convolve2d(gray, k2, 'valid')
+edges = scipy.signal.convolve2d(gray, k1, 'valid')
 # Adjust the contrast of the filtered image by applying Histogram Equalization
 edges_equalized = exposure.equalize_adapthist(edges/np.max(np.abs(edges)), clip_limit=0.09)
 plt.imshow(edges_equalized, cmap=plt.cm.gray)    # plot the edges_clipped
 plt.axis('off')
 #plt.show()
-plt.savefig('Vertical edge detection.pdf')
+plt.savefig('Horizontal edge detection.pdf')
