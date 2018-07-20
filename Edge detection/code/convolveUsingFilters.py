@@ -24,10 +24,12 @@ plt.imshow(x,cmap = plt.get_cmap('gray'))
 
 
 import scipy.signal
+from skimage import exposure
 
-edges = scipy.signal.convolve2d(gray, kernel, 'valid')
+edges = scipy.signal.convolve2d(gray, k2, 'valid')
 # Adjust the contrast of the filtered image by applying Histogram Equalization
 edges_equalized = exposure.equalize_adapthist(edges/np.max(np.abs(edges)), clip_limit=0.09)
 plt.imshow(edges_equalized, cmap=plt.cm.gray)    # plot the edges_clipped
 plt.axis('off')
-plt.show()
+#plt.show()
+plt.savefig('Vertical edge detection.pdf')
