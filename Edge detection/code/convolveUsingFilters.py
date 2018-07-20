@@ -12,7 +12,8 @@ def rgb2gray(rgb):
 img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Edge detection\Images\test2.jpg')     
 gray = rgb2gray(img)    
 plt.imshow(gray, cmap = plt.get_cmap('gray'))
-plt.show()
+#plt.show()
+plt.savefig('grayscale.pdf')
 
 k1 = np.array([[1,1,1],[0,0,0],[-1,-1,-1]])#for horizontal edges
 k2 = np.array([[1,0,-1],[1,0,-1],[1,0,-1]])#for vertical edges
