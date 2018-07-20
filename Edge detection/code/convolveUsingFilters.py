@@ -9,7 +9,7 @@ import matplotlib.image as mpimg
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.299, 0.587, 0.114])
 
-img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\test2.jpg')     
+img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Edge detection\Images\test2.jpg')     
 gray = rgb2gray(img)    
 plt.imshow(gray, cmap = plt.get_cmap('gray'))
 plt.show()
