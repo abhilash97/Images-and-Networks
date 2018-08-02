@@ -10,15 +10,14 @@ gray = img_read()
 inputs = Input(shape=gray.shape)
 
 # a layer instance is callable on a tensor, and returns a tensor
-x = Conv2D(16, kernel_size = (3,3), strides = (1,1),activation = 'relu')(inputs)
-x = Dense(64, activation='relu')(x)
-predictions = Dense(10, activation='softmax')(x)
+x = Conv2D(8, kernel_size = (2,2), strides = (1,1),activation = 'relu')(inputs)
+x = MaxPooling2D(pool_size = (2,2), strides = None)(x)
+
+#predictions = Dense(10, activation='softmax')(x)
 
 # This creates a model that includes
 # the Input layer and three Dense layers
-model = Model(inputs=inputs, outputs=predictions)
-model.compile(optimizer='rmsprop',
-              loss='categorical_crossentropy',
-              metrics=['accuracy'])
-model.fit(data, labels)
-""" 
+model = Model(inputs=inputs, outputs=x)
+print(type(x))
+#model.compile(optimizer='rmsprop',loss='categorical_crossentropy',metrics=['accuracy'])
+#model.fit(data, labels)
