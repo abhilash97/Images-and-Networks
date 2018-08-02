@@ -46,4 +46,8 @@ def main():
     #edges_equalizedx = exposure.equalize_adapthist(edgex/np.max(np.abs(edgex)), clip_limit=0.09)
     #plt.imshow(edges_equalizedx, cmap=plt.cm.gray)    # plot the edges_clipped
 
-
+if __name__=="__main__":
+    main()
+else:
+    print("nothing to say")
+    
