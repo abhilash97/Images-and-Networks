@@ -10,7 +10,7 @@ def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.299, 0.587, 0.114])
 
 def img_read():
-    img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Edge detection\Images\test2.jpg')     
+    img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Edge detection\Images\test3.jpg')     
     gray = rgb2gray(img)        
     if __name__=="__main__":
         plt.imshow(gray, cmap = plt.get_cmap('gray'))
@@ -34,13 +34,13 @@ def main():
     from skimage import exposure
 
     gray = img_read()
-    edges = scipy.signal.convolve2d(gray, k1, 'valid')
+    edges = scipy.signal.convolve2d(gray, k2, 'valid')
     # Adjust the contrast of the filtered image by applying Histogram Equalization
     edges_equalized = exposure.equalize_adapthist(edges/np.max(np.abs(edges)), clip_limit=0.09)
     plt.imshow(edges_equalized, cmap=plt.cm.gray)    # plot the edges_clipped
     plt.axis('off')
     #plt.show()
-    #plt.savefig('Horizontal edge detection.pdf')
+    plt.savefig('Vertical edge detection-clock_tower.pdf')
 
     #changing the filters into some random valued array
     #kx = np.array([[1,2,3],[2,3,4],[1,6,7]])
