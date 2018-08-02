@@ -12,10 +12,12 @@ def rgb2gray(rgb):
 def img_read():
     img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Edge detection\Images\test2.jpg')     
     gray = rgb2gray(img)        
-    plt.imshow(gray, cmap = plt.get_cmap('gray'))
-    #plt.colorbar()
-    #plt.show()
-    plt.savefig('grayscale.pdf')
+    if __name__=="__main__":
+        plt.imshow(gray, cmap = plt.get_cmap('gray'))
+        #plt.colorbar()
+        #plt.show()
+        plt.savefig('grayscale.pdf')
+    
     return gray
 
 
