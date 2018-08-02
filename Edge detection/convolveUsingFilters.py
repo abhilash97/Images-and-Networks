@@ -1,4 +1,4 @@
-#detecting edges using manual convolutions
+#visualizing edges using manual convolutions
 from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
@@ -31,7 +31,13 @@ from skimage import exposure
 edges = scipy.signal.convolve2d(gray, k1, 'valid')
 # Adjust the contrast of the filtered image by applying Histogram Equalization
 edges_equalized = exposure.equalize_adapthist(edges/np.max(np.abs(edges)), clip_limit=0.09)
-plt.imshow(edges_equalized, cmap=plt.cm.gray)    # plot the edges_clipped
+#plt.imshow(edges_equalized, cmap=plt.cm.gray)    # plot the edges_clipped
 plt.axis('off')
 #plt.show()
-plt.savefig('Horizontal edge detection.pdf')
+#plt.savefig('Horizontal edge detection.pdf')
+
+#changing the filters into some random valued array
+kx = np.array([[1,2,3],[2,3,4],[1,6,7]])
+edgex = scipy.signal.convolve2d(gray, k1, 'valid')
+edges_equalizedx = exposure.equalize_adapthist(edgex/np.max(np.abs(edgex)), clip_limit=0.09)
+plt.imshow(edges_equalizedx, cmap=plt.cm.gray)    # plot the edges_clipped
