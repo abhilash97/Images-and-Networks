@@ -6,8 +6,8 @@ import matplotlib.image as mpimg
 from convolveUsingFilters import img_read
 
 gray = img_read()
-
-inputs = Input(shape=gray.shape)
+s = gray.shape
+inputs = Input(shape=s)
 
 # a layer instance is callable on a tensor, and returns a tensor
 x = Conv2D(8, kernel_size = (2,2), strides = (1,1),activation = 'relu')(inputs)
