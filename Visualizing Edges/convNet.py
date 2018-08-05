@@ -14,6 +14,7 @@ s = img.shape# 2592,1920,3
 inputs = Input(shape=s)
 # a layer instance is callable on a tensor, and returns a tensor
 x = Conv2D(4, kernel_size = (3,3), strides = (1,1), activation='relu')(inputs)
+x = MaxPooling2D(pool_size = (2,2))(x)
 model = Model(inputs=inputs, outputs=x)
 
 #prediction in keras require a set of images/more than 1 image
@@ -28,5 +29,5 @@ c1_img = np.squeeze(convolved_img,axis=0)
 
 plt.imshow(c1_img)
 plt.axis('off')
-#plt.savefig('C1 output with 3 filters.pdf')
+plt.savefig('C1 output with 3 filters, relu and maxpool.pdf')
 
