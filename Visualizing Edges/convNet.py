@@ -13,7 +13,7 @@ s = img.shape# 2592,1920,3
 #creating a single convolutional layer
 inputs = Input(shape=s)
 # a layer instance is callable on a tensor, and returns a tensor
-x = Conv2D(4, kernel_size = (3,3), strides = (1,1), activation='relu')(inputs)
+x = Conv2D(3, kernel_size = (2,2), strides = (1,1), activation='relu')(inputs)
 x = MaxPooling2D(pool_size = (2,2))(x)
 model = Model(inputs=inputs, outputs=x)
 
