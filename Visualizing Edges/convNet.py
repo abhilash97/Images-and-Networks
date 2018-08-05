@@ -5,19 +5,15 @@ from keras.models import Model
 import matplotlib.image as mpimg
 from convolveUsingFilters import img_read
 
-gray = img_read()
-s = gray.shape
+img = img_read(1)
+s = img.shape# 2592,1920,3
 inputs = Input(shape=s)
 
 # a layer instance is callable on a tensor, and returns a tensor
-x = Conv2D(8, kernel_size = (2,2), strides = (1,1),activation = 'relu')(inputs)
-x = MaxPooling2D(pool_size = (2,2), strides = None)(x)
+x = Conv2D(8, kernel_size = (2,2), strides = (1,1))(inputs)
 
-#predictions = Dense(10, activation='softmax')(x)
-
-# This creates a model that includes
-# the Input layer and three Dense layers
 model = Model(inputs=inputs, outputs=x)
+model.predict()
 print(type(x))
 #model.compile(optimizer='rmsprop',loss='categorical_crossentropy',metrics=['accuracy'])
 #model.fit(data, labels)

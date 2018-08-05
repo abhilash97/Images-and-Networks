@@ -10,7 +10,7 @@ def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.299, 0.587, 0.114])
 
 def img_read(no_gray):
-    img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Edge detection\Images\test3.jpg')     
+    img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Visualizing Edges\Images\test3.jpg')     
     if no_gray==0:
         gray = rgb2gray(img)
     else:
