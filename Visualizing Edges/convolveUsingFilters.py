@@ -9,9 +9,12 @@ import matplotlib.image as mpimg
 def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.299, 0.587, 0.114])
 
-def img_read():
+def img_read(no_gray):
     img = mpimg.imread(r'C:\Users\user\Desktop\Abhilash\Imp\Deep_Learning\Neural Networks\CNN\Images and Networks\Edge detection\Images\test3.jpg')     
-    gray = rgb2gray(img)        
+    if no_gray==0:
+        gray = rgb2gray(img)
+    else:
+        gray = img        
     if __name__=="__main__":
         plt.imshow(gray, cmap = plt.get_cmap('gray'))
         #plt.colorbar()
