@@ -13,7 +13,7 @@ s = img.shape# 2592,1920,3
 #creating a single convolutional layer
 inputs = Input(shape=s)
 # a layer instance is callable on a tensor, and returns a tensor
-x = Conv2D(3, kernel_size = (3,3), strides = (1,1))(inputs)
+x = Conv2D(4, kernel_size = (3,3), strides = (1,1), activation='relu')(inputs)
 model = Model(inputs=inputs, outputs=x)
 
 #prediction in keras require a set of images/more than 1 image
@@ -25,6 +25,8 @@ convolved_img = model.predict(ximg)
 
 #visualizing what the convolutional layer sees
 c1_img = np.squeeze(convolved_img,axis=0)
+
 plt.imshow(c1_img)
 plt.axis('off')
-plt.savefig('C1 output with 3 filters.pdf')
+#plt.savefig('C1 output with 3 filters.pdf')
+
